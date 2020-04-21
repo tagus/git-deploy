@@ -1,5 +1,7 @@
-name: 'Deploy to a Git Repo'
-description: Commits and pushes changes to a git repository
+name: Deploy to a Git Repo
+description: >
+  Commits and pushes changes to a git repository. Written as a docker
+  container action.
 inputs:
   repository:
     description: The ssh url of the target repository.
