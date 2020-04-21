@@ -11,7 +11,7 @@ inputs:
     description: >
       SSH key used to push to the registry. The SSH key is configured
       with the local git config, enabling this action ro run
-      authenticated git commands. The post-job step removes the ssh key.
+      authenticated git commands.
     required: true
   ssh_known_hosts:
     description: Known hosts to run ssh commands against.
@@ -24,3 +24,6 @@ inputs:
 runs:
   using: docker
   image: Dockerfile
+branding:
+  color: purple
+  icon: anchor

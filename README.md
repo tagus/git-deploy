@@ -20,7 +20,7 @@ you need for `git-deploy` to pick up the `changed` directory.
 
 **Required** The SSH key used to push to the registry. The SSH key is
 configured with the local git config, enabling this action to run
-authenticated git commands. The post-job step removes the ssh key.
+authenticated git commands.
 
 Follow [these](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys)
 instructions to create and integrate a deploy key with the target repo.
