@@ -1,0 +1,26 @@
+name: Git Push
+description: Commits and pushes changes to a git repository
+inputs:
+  repository:
+    description: The ssh url of the target repository.
+    required: true
+  changes:
+    description: The path to the directory containing the changes to deploy.
+    required: true
+  ssh_key:
+    description: >
+      SSH key used to push to the registry. The SSH key is configured
+      with the local git config, enabling this action ro run
+      authenticated git commands. The post-job step removes the ssh key.
+    required: true
+  ssh_known_hosts:
+    description: Known hosts to run ssh commands against.
+  name:
+    description: A name for the git user creating the git commit.
+    required: true
+  email:
+    description: An email for the git user creating the git commit.
+    required: true
+runs:
+  using: docker
+  image: Dockerfile
