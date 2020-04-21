@@ -16,25 +16,25 @@ else
 fi
 
 echo "adding ssh key"
-ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+ssh-agent -a "$SSH_AUTH_SOCK" > /dev/null
 echo "$INPUT_SSH_KEY" | tr -d '\r' | ssh-add -
 
 echo "updating git config"
-git config --global user.name $INPUT_NAME
-git config --global user.email $INPUT_EMAIL
+git config --global user.name "$INPUT_NAME"
+git config --global user.email "$INPUT_EMAIL"
 
 rm -rf repo && mkdir repo
 git clone "$INPUT_REPOSITORY" repo
 
 echo "copying changes"
-rsync -vr $INPUT_CHANGES/ repo
+rsync -vr "$INPUT_CHANGES"/ repo
 
-echo "deploying changed"
 ts=$(date '+%Y-%m-%d %H:%M:%S')
-cd repo
+cd repo || exit
 if [[ $(git status -s) ]]; then
     git add .
     git commit -m "auto-update - $ts"
+    echo "deploying changed"
     git push origin master
 else
     echo "no changes detected, skipping push"
