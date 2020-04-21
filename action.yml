@@ -1,4 +1,4 @@
-name: Git Push
+name: Git Deploy
 description: Commits and pushes changes to a git repository
 inputs:
   repository:
