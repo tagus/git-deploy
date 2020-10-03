@@ -46,6 +46,10 @@ as the known host.
 
 **Required** An email for the git user creating the git commit.
 
+### `branch`
+
+The branch name of the remote repo to push to. By default, `master` is used.
+
 ## Example Usage
 
 ```yaml
