@@ -23,6 +23,9 @@ inputs:
   email:
     description: An email for the git user creating the git commit.
     required: true
+  branch:
+    description: The remote branch to push the new commit to (defaults to master)
+    required: false
 runs:
   using: docker
   image: Dockerfile

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# setting up params
+BRANCH=${INPUT_BRANCH:-"master"}
+
 ROOT=/root
 
 if [[ ! -d "$ROOT/.ssh" ]]; then
@@ -34,8 +37,8 @@ cd repo || exit
 if [[ $(git status -s) ]]; then
     git add .
     git commit -m "auto-update - $ts"
-    echo "deploying changed"
-    git push origin master
+    echo "deploying changed to: $BRANCH"
+    git push origin $BRANCH
 else
     echo "no changes detected, skipping push"
 fi
