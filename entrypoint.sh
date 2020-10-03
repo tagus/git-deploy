@@ -38,7 +38,7 @@ if [[ $(git status -s) ]]; then
     git add .
     git commit -m "auto-update - $ts"
     echo "deploying changed to: $BRANCH"
-    git push origin $BRANCH
+    git push origin "$BRANCH"
 else
     echo "no changes detected, skipping push"
 fi
