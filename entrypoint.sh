@@ -1,7 +1,14 @@
 #!/bin/bash
 
+set -e
+
+# setting up defaults
+DEFAULT_BRANCH="master"
+DEFAULT_MESSAGE="auto-update: $(date '+%Y-%m-%d %H:%M:%S')"
+
 # setting up params
-BRANCH=${INPUT_BRANCH:-"master"}
+BRANCH=${INPUT_BRANCH:-$DEFAULT_BRANCH}
+MESSAGE=${INPUT_MESSAGE:-$DEFAULT_MESSAGE}
 
 ROOT=/root
 
@@ -29,15 +36,20 @@ git config --global user.email "$INPUT_EMAIL"
 rm -rf repo && mkdir repo
 git clone "$INPUT_REPOSITORY" repo
 
+if [[ "$BRANCH" != "$DEFAULT_BRANCH" ]]; then
+    echo "checking out branch: $BRANCH"
+    pushd repo
+        git checkout "$BRANCH"
+    popd
+fi
+
 echo "copying changes"
 rsync -vr "$INPUT_CHANGES"/ repo
 
-ts=$(date '+%Y-%m-%d %H:%M:%S')
 cd repo || exit
 if [[ $(git status -s) ]]; then
     git add .
-    git commit -m "auto-update - $ts"
-    echo "deploying changed to: $BRANCH"
+    git commit -m "$MESSAGE"
     git push origin "$BRANCH"
 else
     echo "no changes detected, skipping push"

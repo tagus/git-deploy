@@ -26,6 +26,9 @@ inputs:
   branch:
     description: The remote branch to push the new commit to (defaults to master)
     required: false
+  message:
+    description: The commit message that should be used with the commit (defaults to a standard format)
+    required: false
 runs:
   using: docker
   image: Dockerfile

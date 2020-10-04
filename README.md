@@ -49,6 +49,12 @@ as the known host.
 ### `branch`
 
 The branch name of the remote repo to push to. By default, `master` is used.
+Note that this branch must already exist in the remote repo.
+
+### `message`
+
+The commit message used for the commit. By default, a standard format is used
+e.g. `auto-deploy: 2020-10-03 16:54:59`.
 
 ## Example Usage
 
