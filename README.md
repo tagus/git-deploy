@@ -2,7 +2,7 @@
 
 ![check action](https://github.com/sugatpoudel/git-deploy/workflows/check%20action/badge.svg?branch=master)
 
-This action takes a directories, copies it over to a repo, and deployed the repo
+This action takes a directory, copies it over to an existing repo, and deploys (pushes) the repo
 with the committed changes. This action was written to support a workflow for deploying changes
 to a github pages repo from another repo that contains the source files.
 
