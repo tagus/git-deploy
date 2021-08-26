@@ -56,6 +56,11 @@ Note that this branch must already exist in the remote repo.
 The commit message used for the commit. By default, a standard format is used
 e.g. `auto-deploy: 2020-10-03 16:54:59`.
 
+### `clean_repo`
+
+A boolean that specifies whether to remove all files in repository that are not present
+in the specified `changes` directory.
+
 ## Example Usage
 
 ```yaml
@@ -67,4 +72,5 @@ with:
   ssh_key: ${{ secrets.REPO_DEPLOY_KEY }}
   name: user
   email: user@email.com
+  clean_repo: true
 ```

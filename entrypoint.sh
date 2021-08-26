@@ -5,10 +5,15 @@ set -e
 # setting up defaults
 DEFAULT_BRANCH="master"
 DEFAULT_MESSAGE="auto-update: $(date '+%Y-%m-%d %H:%M:%S')"
+DEFAULT_CLEAN_REPO=""
 
 # setting up params
 BRANCH=${INPUT_BRANCH:-$DEFAULT_BRANCH}
 MESSAGE=${INPUT_MESSAGE:-$DEFAULT_MESSAGE}
+
+if [[ "$INPUT_CLEAN_REPO" = true ]]; then
+    DEFAULT_CLEAN_REPO="true"
+fi
 
 ROOT=/root
 
@@ -44,7 +49,7 @@ if [[ "$BRANCH" != "$DEFAULT_BRANCH" ]]; then
 fi
 
 echo "copying changes"
-rsync -vr "$INPUT_CHANGES"/ repo
+rsync -vr ${CLEAN_REPO:+--delete} "$INPUT_CHANGES"/ repo
 
 cd repo || exit
 if [[ $(git status -s) ]]; then

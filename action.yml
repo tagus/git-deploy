@@ -29,6 +29,9 @@ inputs:
   message:
     description: The commit message that should be used with the commit (defaults to a standard format)
     required: false
+  clean_repo:
+    description: Whether to remove files from the repo not present in the given changes
+    required: false
 runs:
   using: docker
   image: Dockerfile
