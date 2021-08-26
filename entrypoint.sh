@@ -5,14 +5,13 @@ set -e
 # setting up defaults
 DEFAULT_BRANCH="master"
 DEFAULT_MESSAGE="auto-update: $(date '+%Y-%m-%d %H:%M:%S')"
-DEFAULT_CLEAN_REPO=""
 
 # setting up params
 BRANCH=${INPUT_BRANCH:-$DEFAULT_BRANCH}
 MESSAGE=${INPUT_MESSAGE:-$DEFAULT_MESSAGE}
 
 if [[ "$INPUT_CLEAN_REPO" = true ]]; then
-    DEFAULT_CLEAN_REPO="true"
+    CLEAN_REPO="true"
 fi
 
 ROOT=/root
