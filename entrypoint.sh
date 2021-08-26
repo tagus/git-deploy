@@ -48,7 +48,7 @@ if [[ "$BRANCH" != "$DEFAULT_BRANCH" ]]; then
 fi
 
 echo "copying changes"
-rsync -vr ${CLEAN_REPO:+--delete} "$INPUT_CHANGES"/ repo
+rsync -vr --exclude='.git' ${CLEAN_REPO:+--delete} "$INPUT_CHANGES"/ repo
 
 cd repo || exit
 if [[ $(git status -s) ]]; then
