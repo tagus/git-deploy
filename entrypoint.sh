@@ -10,7 +10,7 @@ DEFAULT_MESSAGE="auto-update: $(date '+%Y-%m-%d %H:%M:%S')"
 BRANCH=${INPUT_BRANCH:-$DEFAULT_BRANCH}
 MESSAGE=${INPUT_MESSAGE:-$DEFAULT_MESSAGE}
 
-if [[ "$INPUT_CLEAN_REPO" = true ]]; then
+if [[ "$INPUT_CLEAN_REPO" == true ]]; then
     CLEAN_REPO="true"
 fi
 
@@ -50,11 +50,18 @@ fi
 echo "copying changes"
 rsync -vr --exclude='.git' ${CLEAN_REPO:+--delete} "$INPUT_CHANGES"/ repo
 
-cd repo || exit
-if [[ $(git status -s) ]]; then
+cd repo || exit 1
+
+STATUS=$(git status -s)
+STATUS_EXIT_CODE=$?
+
+if [[ -n "$STATUS" && $STATUS_EXIT_CODE == 0 ]]; then
     git add .
     git commit -m "$MESSAGE"
     git push origin "$BRANCH"
-else
+elif [[ $STATUS_EXIT_CODE == 0 ]]; then
     echo "no changes detected, skipping push"
+else
+    echo "an error occurred"
+    exit 1
 fi
