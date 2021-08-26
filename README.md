@@ -1,6 +1,6 @@
 # Git Deploy Github Action
 
-![check action](https://github.com/sugatpoudel/git-deploy/workflows/check%20action/badge.svg?branch=master)
+![check action](https://github.com/tagus/git-deploy/workflows/check%20action/badge.svg?branch=master)
 
 This action takes a directory, copies it over to an existing repo, and deploys (pushes) the repo
 with the committed changes. This action was written to support a workflow for deploying changes
@@ -65,7 +65,7 @@ in the specified `changes` directory.
 
 ```yaml
 name: deploy changes to a repo
-uses: sugatpoudel/git-deploy@v0.1
+uses: tagus/git-deploy@v0.1
 with:
   changes: public
   repository: git@github.com:<user>/<repo>.git
