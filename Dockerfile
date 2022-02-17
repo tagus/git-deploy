@@ -1,6 +1,6 @@
 FROM alpine:3.10
 
-LABEL version=v0.3.2
+LABEL version=v0.4
 
 RUN apk add --no-cache openssh git rsync bash
 
