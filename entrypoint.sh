@@ -47,7 +47,7 @@ if [[ "$BRANCH" != "$DEFAULT_BRANCH" ]]; then
     popd
 fi
 
-echo "copying changes"
+echo "copying changes to: $INPUT_CHANGES/"
 rsync -vr --exclude='.git' ${CLEAN_REPO:+--delete} "$INPUT_CHANGES"/ repo
 
 cd repo || exit 1
