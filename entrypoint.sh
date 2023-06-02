@@ -3,7 +3,7 @@
 set -e
 
 # setting up defaults
-DEFAULT_BRANCH="master"
+DEFAULT_BRANCH="main"
 DEFAULT_MESSAGE="auto-update: $(date '+%Y-%m-%d %H:%M:%S')"
 
 # setting up params

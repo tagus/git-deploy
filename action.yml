@@ -24,7 +24,7 @@ inputs:
     description: An email for the git user creating the git commit.
     required: true
   branch:
-    description: The remote branch to push the new commit to (defaults to master)
+    description: The remote branch to push the new commit to (defaults to main)
     required: false
   message:
     description: The commit message that should be used with the commit (defaults to a standard format)

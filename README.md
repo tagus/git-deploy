@@ -1,6 +1,6 @@
 # Git Deploy Github Action
 
-![check action](https://github.com/tagus/git-deploy/workflows/check%20action/badge.svg?branch=master)
+![check action](https://github.com/tagus/git-deploy/workflows/check%20action/badge.svg?branch=main)
 
 This action takes a directory, copies it over to an existing repo, and deploys (pushes) the repo
 with the committed changes. This action was written to support a workflow for deploying changes
@@ -48,7 +48,7 @@ as the known host.
 
 ### `branch`
 
-The branch name of the remote repo to push to. By default, `master` is used.
+The branch name of the remote repo to push to. By default, `main` is used.
 Note that this branch must already exist in the remote repo.
 
 ### `message`
