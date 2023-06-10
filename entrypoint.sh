@@ -52,6 +52,8 @@ rsync -vr --exclude='.git' ${CLEAN_REPO:+--delete} "$INPUT_CHANGES"/ repo
 
 cd repo || exit 1
 
+git status
+
 STATUS=$(git status -s)
 STATUS_EXIT_CODE=$?
 

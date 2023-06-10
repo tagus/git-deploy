@@ -65,7 +65,7 @@ in the specified `changes` directory.
 
 ```yaml
 name: deploy changes to a repo
-uses: tagus/git-deploy@v0.4.4
+uses: tagus/git-deploy@v0.5.0
 with:
   changes: public
   repository: git@github.com:<user>/<repo>.git
